@@ -26,7 +26,8 @@ $( document ).on( 'click', '#searchNow', function(){
             // divCounter++;
             var $div = $("<div class ='imgDiv'>");
             $div.append('<img src=' + response.data[i].images.downsized.url + '>');
-            $div.append('<button class="remove">X</button>');
+            $div.append('<button class="remove">Remove</button>');
+            $div.append('<button class="favorite">favorite</button>');
             // $div.append()
             $('#outputDiv').prepend($div);
      }
