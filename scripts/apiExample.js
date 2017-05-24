@@ -69,7 +69,7 @@ function searchGiffy(){
           $div.append('<img src="http://media0.giphy.com/media/GDnomdqpSHlIs/giphy.gif" >');
           $div.append('<button class="remove">Remove</button>');
           $div.append('<button class="favorite">favorite</button>');
-          $('#input').attr('placeholder', 'Sorry we have no Gifs');
+          $('#input').attr('placeholder', 'Sorry we have no matching Gifs');
         }
         else {
           for (var i = 0; i < response.data.length; i++) {
