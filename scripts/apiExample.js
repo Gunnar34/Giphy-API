@@ -61,19 +61,30 @@ function searchGiffy(){
           var divCounter = 0;
         // successfully hit API
         console.log( 'successful API hit:', response );
-        console.log('url', response.data[0].images.downsized.url);
+        // console.log('url', response.data[0].images.downsized.url);
+        if (response.data.length === 0){
+          var $div = $("<div class ='imgDiv'>");
+          console.log('why wont you append');
+          $('#outputDiv').prepend($div);
+          $div.append('<img src="http://media0.giphy.com/media/GDnomdqpSHlIs/giphy.gif" >');
+          $div.append('<button class="remove">Remove</button>');
+          $div.append('<button class="favorite">favorite</button>');
+          $('#input').attr('placeholder', 'Sorry we have no Gifs');
+        }
+        else {
           for (var i = 0; i < response.data.length; i++) {
-            // divCounter++;
             var $div = $("<div class ='imgDiv'>");
             $div.append('<img src=' + response.data[i].images.downsized.url + '>');
             $div.append('<button class="remove">Remove</button>');
             $div.append('<button class="favorite">favorite</button>');
             // $div.append()
             $('#outputDiv').prepend($div);
+            $('#input').attr('placeholder', 'Search Giphy');
+          }
      }
      //end of for loop
      $('#input').val('');
-     $('#input').attr('placeholder', 'Search Giphy');
+    //  $('#input').attr('placeholder', 'Search Giphy');
      //clear input field
 
       } // end success
