@@ -2,6 +2,8 @@ console.log( 'api example script sourced' );
 
 $(document).ready(function(){
 
+$(document).on('keydown', keyDownHandler);
+
 $('#showFavorites').on('click', function(){
   $('#outputDiv').hide();
   $('#input').hide();
@@ -22,6 +24,7 @@ $('#showSearchResults').on('click', function(){
 
 $('#outputDiv').on('click', '.favorite', function(){
   var imgArray = ($(this).siblings('img'));
+  console.log(imgArray);
   var imgURL = imgArray[0].currentSrc;
   var $div = $("<div class ='imgDiv favImgDiv'>");
   $div.append('<img src=' + imgURL + '>');
@@ -29,12 +32,20 @@ $('#outputDiv').on('click', '.favorite', function(){
   $('#favoritesDiv').prepend($div);
 });
 
+function keyDownHandler(e) {
+    if(e.keyCode == 13) {
+      searchGiffy();
+    }}
+
+
 $('body').on('click', '.imgDiv > .remove', function(){
   console.log('remove');
   $(this).parent().remove();
 });
 
-$('#searchNow').on( 'click', function(){
+$('#searchNow').on( 'click', searchGiffy);
+
+function searchGiffy(){
   // assemble search URL
   var searchItem = $('#input').val();
   var searchURL = 'http://api.giphy.com/v1/gifs/search?q=' + searchItem + '&api_key=dc6zaTOxFJmzC';
@@ -68,6 +79,6 @@ $('#searchNow').on( 'click', function(){
       } // end success
     }); //end ajax
 }
-}); // end click on search button
+} // end click on search button
 
 });
