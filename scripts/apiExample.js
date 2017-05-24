@@ -1,11 +1,38 @@
 console.log( 'api example script sourced' );
 
-$(document).on('click', '.imgDiv > .remove', function(){
+$(document).ready(function(){
+
+$('#showFavorites').on('click', function(){
+  $('#outputDiv').hide();
+  $('#input').hide();
+  $('#searchNow').hide();
+  $('#showFavorites').hide();
+  $('#favoritesDiv').show();
+});
+
+$('#showSearchResults').on('click', function(){
+  $('#outputDiv').show();
+  $('#input').show();
+  $('#searchNow').show();
+  $('#showFavorites').show();
+  $('#favoritesDiv').hide();
+});
+
+$('#outputDiv').on('click', '.favorite', function(){
+  var imgArray = ($(this).siblings('img'));
+  var imgURL = imgArray[0].currentSrc;
+  var $div = $("<div class ='imgDiv favImgDiv'>");
+  $div.append('<img src=' + imgURL + '>');
+  $div.append('<button class="remove">Remove</button>');
+  $('#favoritesDiv').prepend($div);
+});
+
+$('body').on('click', '.imgDiv > .remove', function(){
   console.log('remove');
   $(this).parent().remove();
 });
 
-$( document ).on( 'click', '#searchNow', function(){
+$('#searchNow').on( 'click', function(){
   // assemble search URL
   var searchItem = $('#input').val();
   var searchURL = 'http://api.giphy.com/v1/gifs/search?q=' + searchItem + '&api_key=dc6zaTOxFJmzC';
@@ -40,3 +67,5 @@ $( document ).on( 'click', '#searchNow', function(){
     }); //end ajax
 }
 }); // end click on search button
+
+});
