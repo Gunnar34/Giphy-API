@@ -1,14 +1,22 @@
-/*.remove {
-  position:
-}
 .imgDiv {
-  display: inline-block;
-  float: left;
-
+  position: relative;
 }
-img {
 
-}*/
+.remove {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.favorite {
+  position: absolute;
+  bottom: 10px;
+  left: 70px;
+}
+
 #favoritesDiv {
+  display: none;
+}
+
+#showSearchResults {
   display: none;
 }

@@ -8,6 +8,7 @@ $('#showFavorites').on('click', function(){
   $('#searchNow').hide();
   $('#showFavorites').hide();
   $('#favoritesDiv').show();
+  $('#showSearchResults').show();
 });
 
 $('#showSearchResults').on('click', function(){
@@ -16,6 +17,7 @@ $('#showSearchResults').on('click', function(){
   $('#searchNow').show();
   $('#showFavorites').show();
   $('#favoritesDiv').hide();
+  $('#showSearchResults').hide();
 });
 
 $('#outputDiv').on('click', '.favorite', function(){
