@@ -8,6 +8,12 @@ $('#clear').on('click', function(){
   $('#outputDiv').empty();
 });
 
+$('#outputDiv').on('mouseleave', '.imgDiv', function(){
+  $(this).find(':button').hide();
+    }).on('mouseenter', '.imgDiv', function(){
+        $(this).find(':button').show();
+});
+
 $('#showFavorites').on('click', function(){
   $('#outputDiv').hide();
   $('#input').hide();

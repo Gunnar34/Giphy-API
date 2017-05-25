@@ -16,7 +16,7 @@ img {
   bottom: 10px;
   left: 10px;
   background-color: #fe921f;
-  display: inline-block;
+  display: none;
   border: none;
   font-size: 8px;
   padding: 10px 24px;
@@ -28,7 +28,7 @@ img {
   bottom: 10px;
   left: 100px;
   background-color: #fe921f;
-  display: inline-block;
+  display: none;
   border: none;
   font-size: 8px;
   padding: 10px 24px;
@@ -44,13 +44,15 @@ img {
 }
 
 h1 {
-  color: #ffffff;
+  color: rgb(0, 0, 0);
   font-family: 'Lato',
   sans-serif;
-  font-size: 54px;
+  font-size: 68px;
   font-weight: 300;
   line-height: 58px;
   margin: 0 0 58px;
+  vertical-align: center;
+  text-align: center;
 }
 
 
@@ -83,4 +85,19 @@ input {
   margin: 8px 0;
   box-sizing: border-box;
   border-radius: 10px;
+}
+
+#h1Container {
+    background-color: #c0c0c0;
+    display: table;
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:100;
+    height: 100px;
+
+}
+
+#buttons {
+  margin-top: 110px;
 }
