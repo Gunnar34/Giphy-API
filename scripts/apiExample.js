@@ -4,6 +4,10 @@ $(document).ready(function(){
 
 $(document).on('keydown', keyDownHandler);
 
+$('#clear').on('click', function(){
+  $('#outputDiv').empty();
+});
+
 $('#showFavorites').on('click', function(){
   $('#outputDiv').hide();
   $('#input').hide();
@@ -11,6 +15,7 @@ $('#showFavorites').on('click', function(){
   $('#showFavorites').hide();
   $('#favoritesDiv').show();
   $('#showSearchResults').show();
+  $('#clear').hide();
 });
 
 $('#showSearchResults').on('click', function(){
@@ -20,6 +25,7 @@ $('#showSearchResults').on('click', function(){
   $('#showFavorites').show();
   $('#favoritesDiv').hide();
   $('#showSearchResults').hide();
+  $('#clear').show();
 });
 
 $('#outputDiv').on('click', '.favorite', function(){
@@ -30,6 +36,7 @@ $('#outputDiv').on('click', '.favorite', function(){
   $div.append('<img src=' + imgURL + '>');
   $div.append('<button class="remove">Remove</button>');
   $('#favoritesDiv').prepend($div);
+  $(this).remove();
 });
 
 function keyDownHandler(e) {
